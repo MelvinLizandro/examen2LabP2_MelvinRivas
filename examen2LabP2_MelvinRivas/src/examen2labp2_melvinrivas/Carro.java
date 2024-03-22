@@ -4,11 +4,13 @@
  */
 package examen2labp2_melvinrivas;
 
+import java.io.Serializable;
+
 /**
  *
  * @author l3306
  */
-public class Carro {
+public class Carro implements Serializable {
     
     String marca;
     String modelo;
