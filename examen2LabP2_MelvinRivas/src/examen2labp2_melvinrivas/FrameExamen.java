@@ -60,10 +60,11 @@ public class FrameExamen extends javax.swing.JFrame  {
         jLabel15 = new javax.swing.JLabel();
         tiempo = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
+        bar1 = new javax.swing.JProgressBar();
+        bar2 = new javax.swing.JProgressBar();
         Carrera1 = new javax.swing.JLabel();
         Carrera2 = new javax.swing.JLabel();
+        Comenzar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Crear_Carro = new javax.swing.JButton();
@@ -204,38 +205,57 @@ public class FrameExamen extends javax.swing.JFrame  {
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Progreso");
 
+        bar1.setMaximum(1000);
+
+        bar2.setMaximum(1000);
+
         Carrera1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Carrera1.setForeground(new java.awt.Color(0, 0, 0));
 
         Carrera2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Carrera2.setForeground(new java.awt.Color(0, 0, 0));
 
+        Comenzar.setBackground(new java.awt.Color(0, 255, 51));
+        Comenzar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        Comenzar.setForeground(new java.awt.Color(0, 0, 0));
+        Comenzar.setText("Iniciar");
+        Comenzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ComenzarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Carrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(131, 131, 131)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                            .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(bar1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(bar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(216, 216, 216)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Carrera1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(Comenzar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(134, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Carrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,13 +268,15 @@ public class FrameExamen extends javax.swing.JFrame  {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Carrera1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Carrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addComponent(bar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(Comenzar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout CarreraLayout = new javax.swing.GroupLayout(Carrera.getContentPane());
@@ -559,16 +581,45 @@ public class FrameExamen extends javax.swing.JFrame  {
 
     private void IniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarMouseClicked
         // TODO add your handling code here:
+     
         Carrera.pack();
         Carrera.setModal(rootPaneCheckingEnabled);
         Carrera.setLocationRelativeTo(this);
         Carrera.setVisible(true);
         
-         Cronometro cro =new Cronometro(tiempo,0,0);
-        Thread proceso1 = new Thread(cro);
-        proceso1.start();  
+ 
 //a        
     }//GEN-LAST:event_IniciarMouseClicked
+
+    private void ComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComenzarMouseClicked
+        // TODO add your handling code here:
+        int velocidad = 0;
+        int velocidad2 = 0;
+        for (int i = 0; i < carro.size(); i++) {
+            
+            if (carro.get(i).getMarca().contains(Selecionado1)) {
+                
+                velocidad = carro.get(i).getVelocidad();
+                
+            }else if(carro.get(i).getMarca().contains(Selecionado2)){
+                velocidad2 = carro.get(i).getVelocidad();
+            }
+            
+        }
+        
+        Cronometro cro =new Cronometro(tiempo,0,0);
+        Thread proceso1 = new Thread(cro);
+        proceso1.start(); 
+        
+        La_Carrera carrera = new La_Carrera(bar1,velocidad);
+        Thread proceso2 = new Thread(carrera);
+        proceso2.start();
+        
+        La_Carrera2 carrera2 = new La_Carrera2(bar2,velocidad2);
+        Thread proceso3 = new Thread(carrera2);
+        proceso3.start();
+        //a
+    }//GEN-LAST:event_ComenzarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -642,6 +693,7 @@ public class FrameExamen extends javax.swing.JFrame  {
     private javax.swing.JDialog Carrera;
     private javax.swing.JLabel Carrera1;
     private javax.swing.JLabel Carrera2;
+    private javax.swing.JButton Comenzar;
     private javax.swing.JDialog Crear;
     private javax.swing.JButton Crear_Carro;
     private javax.swing.JButton Iniciar;
@@ -654,6 +706,8 @@ public class FrameExamen extends javax.swing.JFrame  {
     private javax.swing.JLabel Velocidad1;
     private javax.swing.JLabel Velocidad2;
     private javax.swing.JSpinner Velocidad_Crear;
+    private javax.swing.JProgressBar bar1;
+    private javax.swing.JProgressBar bar2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -673,8 +727,6 @@ public class FrameExamen extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JLabel tiempo;
     // End of variables declaration//GEN-END:variables
 }

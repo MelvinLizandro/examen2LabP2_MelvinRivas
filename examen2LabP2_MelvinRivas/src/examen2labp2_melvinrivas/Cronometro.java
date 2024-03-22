@@ -31,13 +31,19 @@ public class Cronometro extends Thread{
             Thread.sleep(1000);
             segundos++;
             String segundos2 = String.valueOf(segundos );
+                if (segundos < 10) {
+                    label.setText(minutos+" : "+0+segundos2);
+                }else{
             label.setText(minutos+" : "+segundos2);
+                }
                 if (segundos == 60) {
                     segundos = 0;
                     minutos++;
                     String minutos2 = String.valueOf(minutos);
+                    
                      label.setText(minutos+" : "+segundos2);
-                }
+                    }
+                
             }catch (Exception e){
              
             }
